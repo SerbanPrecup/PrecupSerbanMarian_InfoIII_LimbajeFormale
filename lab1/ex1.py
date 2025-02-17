@@ -2,25 +2,25 @@ A = ['a','b','c']
 B = ['x','y','z']
 C = ['1','2','3']
 
-def concatenate(s1,s2):
+def concat(s1: str, s2: str) -> str:
     return s1+s2
 
-def invers(s):
+def invers(s: str) -> str:
     return s[::-1]
 
-def substitute(s,a,b):
+def substitute(s: str,a: str,b: str) -> str:
     return s.replace(a,b)
 
-def lungime(s):
+def lungime(s: str) -> int:
     return len(s)
 
 cuv1="abc"
 
-cuv2="yxz xx"
+cuv2="yxzxx"
 
-cuv3="3213 123"
+cuv3="3213s123"
 
-print(concatenate(cuv2,cuv3))
+print(concat(cuv2,cuv3))
 
 print(invers(cuv3))
 
