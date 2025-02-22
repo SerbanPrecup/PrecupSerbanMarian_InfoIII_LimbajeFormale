@@ -1,0 +1,4 @@
+Client: Ion Popescuș
+Data: 32-13-2023
+Produs: Laptop, Cantitate: 2, Pret: 4500.5, TVA: 19%
+Produs: Mouse, Cantitate: unu, Pret: 120.00, TVA: noua%
