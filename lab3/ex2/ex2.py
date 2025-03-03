@@ -25,20 +25,20 @@ class ParkingLotDFA:
         print("Parcare automata!")
         while True:
             print("\nAlege o optiune:")
-            print("1. Verifica starea parcarii")
-            print("2. Parcheaza o masina")
-            print("3. Pleaca cu o masina")
-            print("4. Iesire")
+            print("v   Verifica starea parcarii")
+            print("+  Parcheaza o masina")
+            print("-  Pleaca cu o masina")
+            print("i  Iesire")
 
             choice = input("Optiunea: ").strip()
 
-            if choice == '1':
+            if choice == 'v':
                 self.display_status()
-            elif choice == '2':
+            elif choice == '+':
                 self.park_car()
-            elif choice == '3':
+            elif choice == '-':
                 self.leave_car()
-            elif choice == '4':
+            elif choice == 'i':
                 print("La revedere!")
                 break
             else:
