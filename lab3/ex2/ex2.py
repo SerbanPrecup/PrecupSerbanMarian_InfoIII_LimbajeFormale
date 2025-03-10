@@ -1,6 +1,5 @@
-import random
 
-class ParkingLotNFA:
+class ParkingLotDFA:
     def __init__(self, total_spots):
         self.total_spots = total_spots
         self.occupied_spots = 0
@@ -10,35 +9,23 @@ class ParkingLotNFA:
 
     def park_car(self):
         if self.occupied_spots < self.total_spots:
-            # Nedeterminism: fie parchează, fie rămâne în aceeași stare
-            if random.choice([True, False]):
-                self.occupied_spots += 1
-                print("Masina a fost parcata cu succes.")
-            else:
-                print("Nedeterminism: Masina NU a fost parcata (ramane in aceeasi stare).")
+            self.occupied_spots += 1
+            print("Masina a fost parcata cu succes.")
         else:
             print("Eroare: Parcare plina. Nu se poate parca.")
 
     def leave_car(self):
         if self.occupied_spots > 0:
-            # Nedeterminism: fie pleacă, fie rămâne în aceeași stare
-            if random.choice([True, False]):
-                self.occupied_spots -= 1
-                print("Masina a parasit parcarea cu succes.")
-            else:
-                print("Nedeterminism: Masina NU a plecat (ramane in aceeasi stare).")
+            self.occupied_spots -= 1
+            print("Masina a parasit parcarea cu succes.")
         else:
             print("Eroare: Parcare goala. Nicio masina nu poate pleca.")
 
-    def epsilon_transition(self):
-        print("Tranzitie epsilon: Verificare automată a stării parcării.")
-        self.display_status()
-
     def run(self):
-        print("Parcare automata (NFA - Nedeterminist)!")
+        print("Parcare automata!")
         while True:
             print("\nAlege o optiune:")
-            print("(epsilon)  Verifica starea parcarii (fără input)")
+            print("(spatiu)  Verifica starea parcarii")
             print("+  Parcheaza o masina")
             print("-  Pleaca cu o masina")
             print("i  Iesire")
@@ -46,7 +33,7 @@ class ParkingLotNFA:
             choice = input("Optiunea: ").strip()
 
             if choice == '':
-                self.epsilon_transition()  # Tranziție epsilon
+                self.display_status()
             elif choice == '+':
                 self.park_car()
             elif choice == '-':
@@ -58,5 +45,5 @@ class ParkingLotNFA:
                 print("Optiune invalida.")
 
 
-parking_lot = ParkingLotNFA(total_spots=5)
+parking_lot = ParkingLotDFA(total_spots=5)
 parking_lot.run()
