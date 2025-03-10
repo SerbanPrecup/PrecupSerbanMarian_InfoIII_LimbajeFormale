@@ -1,49 +1,29 @@
+def switch_position(vector, actual_position, ok):
+    if actual_position in vector:
+        if actual_position == 'q0':
+            if ok == '0':
+                vector.append('q1')
+                vector.append('q2')
+            elif ok == '1':
+                vector.append('q1')
+                vector.append('q2')
+            elif ok == '2':
+                vector.append('q2')
+        if actual_position == 'q1':
+            if ok == '1':
+                vector.append('q2')
+        if actual_position == 'q2':
+            print("S-a ajuns la un punct final")
 
-class ParkingLotDFA:
-    def __init__(self, total_spots):
-        self.total_spots = total_spots
-        self.occupied_spots = 0
-
-    def display_status(self):
-        print(f"Locuri ocupate: {self.occupied_spots}/{self.total_spots}")
-
-    def park_car(self):
-        if self.occupied_spots < self.total_spots:
-            self.occupied_spots += 1
-            print("Masina a fost parcata cu succes.")
-        else:
-            print("Eroare: Parcare plina. Nu se poate parca.")
-
-    def leave_car(self):
-        if self.occupied_spots > 0:
-            self.occupied_spots -= 1
-            print("Masina a parasit parcarea cu succes.")
-        else:
-            print("Eroare: Parcare goala. Nicio masina nu poate pleca.")
-
-    def run(self):
-        print("Parcare automata!")
-        while True:
-            print("\nAlege o optiune:")
-            print("v   Verifica starea parcarii")
-            print("+  Parcheaza o masina")
-            print("-  Pleaca cu o masina")
-            print("i  Iesire")
-
-            choice = input("Optiunea: ").strip()
-
-            if choice == 'v':
-                self.display_status()
-            elif choice == '+':
-                self.park_car()
-            elif choice == '-':
-                self.leave_car()
-            elif choice == 'i':
-                print("La revedere!")
-                break
-            else:
-                print("Optiune invalida.")
+def start_model(word: str):
+    vector = ['q0']
+    while word:
+        print(f"pozitiile actuale sunt:{vector}")
+        ok = word[0]
+        switch_position(vector , 'q0' , ok)
+        word = word[1:]
+    print(f"S-a ajuns la final si starile finale sunt:{vector} ")
 
 
-parking_lot = ParkingLotDFA(total_spots=5)
-parking_lot.run()
+word = input("word: ")
+start_model(word)
